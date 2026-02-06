@@ -1,9 +1,7 @@
 # My Online Library System (C++)
 
 ## Description
-This project is a simple Online Library Management System written in C++. 
-It allows adding books and users, borrowing and returning books, searching books, 
-and removing books from the library. This project demonstrates basic Object-Oriented Programming concepts.
+This is a project of a simple online library management systems designed to make borrowing,adding, registering new users and alseo testing scenarios 
 
 ---
 
