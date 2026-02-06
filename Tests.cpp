@@ -1,15 +1,18 @@
+#include "../include/Library.h"
 
-#include "Library.h"
+int main() 
+{
+    Library testLib;
 
-int main() {
-    Library lib;
+    testLib.addBook(Book(201, "My First Book", "Sam Writer"));
+    testLib.addUser(User(301, "Danny"));
 
-    lib.addBook(Book(10, "Test Book", "Tester"));
-    lib.addUser(User(1, "Test User"));
+    
+    testLib.borrowBook(301, 201);
+    testLib.returnBook(301, 201);
 
-    lib.borrowBook(1, 10);
-    lib.returnBook(1, 10);
-    lib.borrowBook(1, 99); // negative
+    
+    testLib.borrowBook(301, 999);
 
     return 0;
 }
