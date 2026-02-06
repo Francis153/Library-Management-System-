@@ -1,48 +1,38 @@
+#ifndef BOOK_H
+#define BOOK_H
+
 #include <iostream>
 using namespace std;
 
-intmain()
-{
-
-class Book 
-{
+class Book {
 private:
-    int id;
-    string title;
-    string author;
-    bool isAvailable;
+    int bookNumber;
+    string bookName;
+    string writer;
+    bool isBorrowed;
 
 public:
-    Book(id,title,author)
-   {
-        this->id = id;
-        this->title = title;
-        this->author = author;
-        isAvailable = true;
+    Book(int num, string name, string w){
+        bookNumber = num;
+        bookName = name;
+        writer = w;
+        isBorrowed = false; 
     }
 
-    int getId() 
-    {return id;}
-    string getTitle() 
-    {return title;}
-    string getAuthor() 
-    {return author;}
-    bool available() 
-    {return isAvailable;}
+    int getNumber() { return bookNumber; }
+    string getName() { return bookName; }
+    string getWriter() { return writer; }
+    bool available() { return !isBorrowed; }
 
-    void borrowBook() {isAvailable = false;}
-    void returnBook() {isAvailable = true;}
+    void borrowBook() { isBorrowed = true; }
+    void returnBook() { isBorrowed = false; }
 
-    void display() 
-    {
-        cout << "ID:" << id
-             << ",Title:" << title
-             << ",Author:" << author
-             << ",Available:" << (isAvailable ? "Yes" : "No")
+    void showBook(){
+        cout << "BookID:" << bookNumber << " - " << bookName 
+             << " by " << writer 
+             << " [" << (isBorrowed ? "Not avail" : "Avail") << "]" 
              << endl;
-    
-}
-
+    }
 };
 
 #endif
