@@ -5,38 +5,38 @@
 #include <vector>
 using namespace std;
 
-class User {
+class User 
+{
 private:
-    int userId;
+    int id;
     string name;
-    vector<int> borrowedBooks;
+    vector<int> borrowedBooks; // stores book IDs
 
 public:
-    User(int id, string name) {
-        userId = id;
-        this->name = name;
+    User(int uid, string uname){
+        id = uid;
+        name = uname;
     }
 
-    int getId() { return userId; }
-    string getName() { return name; }
+    int getId(){ return id; }
+    string getName(){ return name; }
 
-    void borrow(int bookId) {
-        borrowedBooks.push_back(bookId);
+    void borrowBook(int bookId){ borrowedBooks.push_back(bookId); }
+
+    void returnBook(int bookId){
+        for(int i=0; i<borrowedBooks.size(); i++){
+       if(borrowedBooks[i]==bookId){
+                borrowedBooks.erase(borrowedBooks.begin()+i);
+        break;
+    }
+    }
     }
 
-    void returnBook(int bookId) {
-        for (int i = 0; i < borrowedBooks.size(); i++) {
-            if (borrowedBooks[i] == bookId) {
-                borrowedBooks.erase(borrowedBooks.begin() + i);
-                break;
-            }
-        }
+    void showBorrowed(){
+        cout << name << " borrowed: ";
+        for(int i=0; i<borrowedBooks.size(); i++){
+            cout << borrowedBooks[i] << " ";
     }
-
-    void display() {
-        cout << "User: " << name << " | Borrowed books: ";
-        for (int id : borrowedBooks)
-            cout << id << " ";
         cout << endl;
     }
 };
